@@ -59,6 +59,9 @@ class HypeListTableViewController: UITableViewController {
     /**©------------------------------------------------------------------------------©*/
         override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
             let hype = HypeModelController.shared.hypeList[indexPath.row]
+            guard hype.userRef?.recordID == UserModelController.shared.currentUser?.recordID
+            else { return  }
+            
             presentHypeAlert(for: hype)
         }
 

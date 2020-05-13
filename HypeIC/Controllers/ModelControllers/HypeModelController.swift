@@ -17,9 +17,13 @@ class HypeModelController {
 
         // MARK: _@saveHype
         func saveHype(with text: String, completion: @escaping (Result<Hype?, HypeError>) -> Void) {
+            
+            guard let currentUser = UserModelController.shared.currentUser else { return completion(.failure(.noUserFound)) }
+            
+            let reference = CKRecord.Reference(recordID: currentUser.recordID, action: .none)
 
             // 1> Create a new Hype
-            let newHype = Hype(body: text)// Date has a default = Date()
+            let newHype = Hype(body: text, userRef: reference)// Date has a default = Date()
             // 2> Create a new CKRecord
             let hypeRecord = CKRecord(hype: newHype)
 
@@ -66,6 +70,10 @@ class HypeModelController {
     
     // MARK: _@Update
     func updateHype(_ hype: Hype, completion: @escaping (Result<Hype?, HypeError>) -> Void) {
+        
+        guard hype.userRef?.recordID == UserModelController.shared.currentUser?.recordID
+            else { return completion(.failure(.unableToEdit)) }
+        
         // Get access to a record
         let record = CKRecord(hype: hype)
 
@@ -96,6 +104,9 @@ class HypeModelController {
     /**©-------------------------------------------©*/
     func deleteHype(_ hype: Hype, completion: @escaping (Result<Bool, HypeError>) -> Void) {
 
+        guard hype.userRef?.recordID == UserModelController.shared.currentUser?.recordID
+        else { return completion(.failure(.unableToEdit)) }
+        
         let operation = CKModifyRecordsOperation(recordIDsToDelete: [hype.recordID])
         operation.savePolicy = .changedKeys
         operation.qualityOfService = .userInteractive
@@ -135,6 +146,6 @@ class HypeModelController {
                 completion(error)
             }
             completion(nil)
-        }`
+        }
     }
 }/// END OF CLASS

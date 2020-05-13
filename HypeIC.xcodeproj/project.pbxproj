@@ -7,8 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9EEA77BFE9CD7DFE61D7D1FA /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EEA730F49F0F4A99B008D7E /* User.swift */; };
 		9EEA79353DC301F82006383E /* MyTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EEA72306F8E9CB30C61DB94 /* MyTools.swift */; };
+		9EEA7A274609070DBAA376B1 /* UserModelController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EEA7E01304BAAA00CCAA1DF /* UserModelController.swift */; };
 		9EEA7DECF1511EF6B6D00016 /* HypeModelController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EEA7339FA35713C243EA1DA /* HypeModelController.swift */; };
+		AB58FCB9246C6C2700F9F15E /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB58FCB8246C6C2700F9F15E /* SignUpViewController.swift */; };
+		AB58FCBC246C6E9C00F9F15E /* HypeStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB58FCBA246C6E9C00F9F15E /* HypeStoryboard.storyboard */; };
 		AB957FC12469B74800600102 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB957FC02469B74800600102 /* AppDelegate.swift */; };
 		AB957FC32469B74800600102 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB957FC22469B74800600102 /* SceneDelegate.swift */; };
 		AB957FC82469B74800600102 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB957FC62469B74800600102 /* Main.storyboard */; };
@@ -22,7 +26,11 @@
 
 /* Begin PBXFileReference section */
 		9EEA72306F8E9CB30C61DB94 /* MyTools.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyTools.swift; sourceTree = "<group>"; };
+		9EEA730F49F0F4A99B008D7E /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		9EEA7339FA35713C243EA1DA /* HypeModelController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HypeModelController.swift; sourceTree = "<group>"; };
+		9EEA7E01304BAAA00CCAA1DF /* UserModelController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserModelController.swift; sourceTree = "<group>"; };
+		AB58FCB8246C6C2700F9F15E /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		AB58FCBB246C6E9C00F9F15E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = HypeIC/View/StoryBoard/Base.lproj/HypeStoryboard.storyboard; sourceTree = "<group>"; };
 		AB957FBD2469B74800600102 /* HypeIC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HypeIC.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB957FC02469B74800600102 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AB957FC22469B74800600102 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -101,6 +109,7 @@
 			isa = PBXGroup;
 			children = (
 				9EEA7339FA35713C243EA1DA /* HypeModelController.swift */,
+				9EEA7E01304BAAA00CCAA1DF /* UserModelController.swift */,
 			);
 			path = ModelControllers;
 			sourceTree = "<group>";
@@ -109,6 +118,7 @@
 			isa = PBXGroup;
 			children = (
 				AB957FE32469CED100600102 /* HypeListTableViewController.swift */,
+				AB58FCB8246C6C2700F9F15E /* SignUpViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -124,6 +134,7 @@
 		AB957FD82469B78000600102 /* StoryBoard */ = {
 			isa = PBXGroup;
 			children = (
+				AB58FCBA246C6E9C00F9F15E /* HypeStoryboard.storyboard */,
 				AB957FC62469B74800600102 /* Main.storyboard */,
 			);
 			path = StoryBoard;
@@ -133,6 +144,7 @@
 			isa = PBXGroup;
 			children = (
 				AB957FDF2469BCD800600102 /* Hype.swift */,
+				9EEA730F49F0F4A99B008D7E /* User.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -218,6 +230,7 @@
 				AB957FCD2469B74A00600102 /* LaunchScreen.storyboard in Resources */,
 				AB957FCA2469B74A00600102 /* Assets.xcassets in Resources */,
 				AB957FC82469B74800600102 /* Main.storyboard in Resources */,
+				AB58FCBC246C6E9C00F9F15E /* HypeStoryboard.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -232,15 +245,26 @@
 				AB957FE42469CED100600102 /* HypeListTableViewController.swift in Sources */,
 				AB957FC32469B74800600102 /* SceneDelegate.swift in Sources */,
 				AB957FE02469BCD800600102 /* Hype.swift in Sources */,
+				AB58FCB9246C6C2700F9F15E /* SignUpViewController.swift in Sources */,
 				9EEA79353DC301F82006383E /* MyTools.swift in Sources */,
 				AB957FE22469C52700600102 /* HypeError.swift in Sources */,
 				9EEA7DECF1511EF6B6D00016 /* HypeModelController.swift in Sources */,
+				9EEA77BFE9CD7DFE61D7D1FA /* User.swift in Sources */,
+				9EEA7A274609070DBAA376B1 /* UserModelController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
+		AB58FCBA246C6E9C00F9F15E /* HypeStoryboard.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				AB58FCBB246C6E9C00F9F15E /* Base */,
+			);
+			name = HypeStoryboard.storyboard;
+			sourceTree = "<group>";
+		};
 		AB957FC62469B74800600102 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
