@@ -1,4 +1,4 @@
-import Foundation
+import UIKit
 import CloudKit
 
 class UserModelController {
@@ -15,13 +15,13 @@ class UserModelController {
         /**©------------------------------------------------------------------------------©*/
 
         // MARK: -CREATE Add method signatures
-        func createUser(username: String, bio: String, completion: @escaping (Result<Bool, HypeError>) -> Void) {
+    func createUser(username: String, profilePhoto: UIImage?,completion: @escaping (Result<Bool, HypeError>) -> Void) {
             // - fetchAppleUserRef
             fetchAppleUserRef { [weak self] reference in
                 // - fetching the user reference to use to create a new user
                 guard let reference = reference else { return completion(.failure(.noUserFound)) }
                 // - create new user with the users reference
-                let newUser = User(username: username, bio: bio, appleUserRef: reference)
+                let newUser = User(username: username, profilePhoto: profilePhoto, appleUserRef: reference)
                 // - record create the record to be saved from that new user
                 let record = CKRecord(user: newUser)
                 // - Save the newly created CKRecord

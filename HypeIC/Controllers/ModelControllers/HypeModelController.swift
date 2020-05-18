@@ -1,4 +1,4 @@
-import Foundation
+import UIKit
 import CloudKit
 
 class HypeModelController {
@@ -16,14 +16,14 @@ class HypeModelController {
         // CREATE
 
         // MARK: _@saveHype
-        func saveHype(with text: String, completion: @escaping (Result<Hype?, HypeError>) -> Void) {
+    func saveHype(with text: String, hypePhoto: UIImage?, completion: @escaping (Result<Hype?, HypeError>) -> Void) {
             
             guard let currentUser = UserModelController.shared.currentUser else { return completion(.failure(.noUserFound)) }
             
             let reference = CKRecord.Reference(recordID: currentUser.recordID, action: .none)
 
             // 1> Create a new Hype
-            let newHype = Hype(body: text, userRef: reference)// Date has a default = Date()
+            let newHype = Hype(body: text, hypePhoto: hypePhoto, userRef: reference)// Date has a default = Date()
             // 2> Create a new CKRecord
             let hypeRecord = CKRecord(hype: newHype)
 

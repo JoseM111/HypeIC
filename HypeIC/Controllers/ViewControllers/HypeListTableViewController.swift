@@ -4,6 +4,7 @@ class HypeListTableViewController: UITableViewController {
         
     // MARK: @Properties
     var refresh: UIRefreshControl = UIRefreshControl()
+    var hypePhoto: UIImage?
     
     // MARK: _@Live cycle methods
 
@@ -147,7 +148,7 @@ extension HypeListTableViewController {
                     }
                 }
             } else {
-            HypeModelController.shared.saveHype(with: text) { (result) in
+                HypeModelController.shared.saveHype(with: text, hypePhoto: self.hypePhoto) { (result) in
                 switch result {
                 case .success(let hype):
                     guard let hype = hype else {

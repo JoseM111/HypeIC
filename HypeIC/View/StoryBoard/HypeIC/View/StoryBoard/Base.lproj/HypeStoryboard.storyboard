@@ -3,10 +3,11 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Hype List Table View Controller-->
+        <!--Hype!-->
         <scene sceneID="qaB-x5-VhS">
             <objects>
                 <tableViewController id="58p-np-dZp" customClass="HypeListTableViewController" customModule="HypeIC" customModuleProvider="target" sceneMemberID="viewController">
@@ -49,17 +50,107 @@
                             <outlet property="delegate" destination="58p-np-dZp" id="nRE-9v-jci"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="ziV-p3-uVE">
-                        <barButtonItem key="rightBarButtonItem" systemItem="compose" id="dtD-RE-qB8">
-                            <connections>
-                                <action selector="addBtnTapped:" destination="58p-np-dZp" id="R5t-hQ-h0v"/>
-                            </connections>
-                        </barButtonItem>
+                    <navigationItem key="navigationItem" title="Hype!" id="ziV-p3-uVE">
+                        <rightBarButtonItems>
+                            <barButtonItem systemItem="compose" id="dtD-RE-qB8">
+                                <connections>
+                                    <action selector="addBtnTapped:" destination="58p-np-dZp" id="R5t-hQ-h0v"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem systemItem="camera" id="ta9-Hs-2zB">
+                                <connections>
+                                    <segue destination="3bC-uA-qgx" kind="presentation" id="Zly-if-Tx9"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ni4-qd-AOD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1062.3188405797102" y="196.875"/>
+        </scene>
+        <!--Hype Photo View Controller-->
+        <scene sceneID="1iI-Wg-qCA">
+            <objects>
+                <viewController id="3bC-uA-qgx" customClass="HypePhotoViewController" customModule="HypeIC" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Y8M-rB-wZ4">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5YJ-po-HVy">
+                                <rect key="frame" x="20" y="35" width="370" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="749" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xDS-ta-LRc">
+                                <rect key="frame" x="20" y="61" width="370" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mZ9-pC-hTw">
+                                <rect key="frame" x="20" y="115" width="370" height="203"/>
+                                <connections>
+                                    <segue destination="LmS-Pf-p0J" kind="show" identifier="toStoryBoardPicker" id="Y1P-WX-Zer"/>
+                                </connections>
+                            </containerView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5nD-Nb-Yiw">
+                                <rect key="frame" x="20" y="339" width="160" height="30"/>
+                                <state key="normal" title="Cancel"/>
+                                <connections>
+                                    <action selector="confirmBtnTapped:" destination="3bC-uA-qgx" eventType="touchUpInside" id="55w-oJ-wGl"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wTo-ho-8Cp">
+                                <rect key="frame" x="237" y="339" width="153" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="153" id="Nfm-jW-vgu"/>
+                                </constraints>
+                                <state key="normal" title="Confirm"/>
+                                <connections>
+                                    <action selector="cancelBtnTapped:" destination="3bC-uA-qgx" eventType="touchUpInside" id="9nv-gC-wvu"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="mZ9-pC-hTw" firstAttribute="top" secondItem="Y8M-rB-wZ4" secondAttribute="top" constant="115" id="3uc-FS-wJm"/>
+                            <constraint firstItem="5nD-Nb-Yiw" firstAttribute="top" secondItem="mZ9-pC-hTw" secondAttribute="bottom" constant="21" id="A4k-Fw-1KH"/>
+                            <constraint firstItem="r5u-Bf-bc2" firstAttribute="trailing" secondItem="wTo-ho-8Cp" secondAttribute="trailing" constant="24" id="NYy-oZ-G7d"/>
+                            <constraint firstItem="5nD-Nb-Yiw" firstAttribute="baseline" secondItem="wTo-ho-8Cp" secondAttribute="baseline" id="NrK-Vn-hst"/>
+                            <constraint firstItem="mZ9-pC-hTw" firstAttribute="leading" secondItem="Y8M-rB-wZ4" secondAttribute="leadingMargin" id="QtC-Pv-agv"/>
+                            <constraint firstItem="mZ9-pC-hTw" firstAttribute="top" secondItem="5YJ-po-HVy" secondAttribute="bottom" constant="50" id="Qz6-B0-h4m"/>
+                            <constraint firstItem="5nD-Nb-Yiw" firstAttribute="leading" secondItem="mZ9-pC-hTw" secondAttribute="leading" id="USP-UV-cch"/>
+                            <constraint firstItem="mZ9-pC-hTw" firstAttribute="top" secondItem="xDS-ta-LRc" secondAttribute="bottom" constant="20" id="VsE-PF-wam"/>
+                            <constraint firstItem="mZ9-pC-hTw" firstAttribute="leading" secondItem="xDS-ta-LRc" secondAttribute="leading" id="Y5p-a4-5G7"/>
+                            <constraint firstItem="wTo-ho-8Cp" firstAttribute="trailing" secondItem="5YJ-po-HVy" secondAttribute="trailing" id="anb-q7-5vH"/>
+                            <constraint firstItem="wTo-ho-8Cp" firstAttribute="leading" secondItem="5nD-Nb-Yiw" secondAttribute="trailing" constant="57" id="cTe-Pb-e70"/>
+                            <constraint firstItem="wTo-ho-8Cp" firstAttribute="trailing" secondItem="mZ9-pC-hTw" secondAttribute="trailing" id="jlY-uE-E8k"/>
+                            <constraint firstItem="mZ9-pC-hTw" firstAttribute="leading" secondItem="5YJ-po-HVy" secondAttribute="leading" id="nCx-Ie-VOK"/>
+                            <constraint firstItem="wTo-ho-8Cp" firstAttribute="trailing" secondItem="xDS-ta-LRc" secondAttribute="trailing" id="nbX-ww-VuP"/>
+                            <constraint firstItem="5YJ-po-HVy" firstAttribute="top" secondItem="r5u-Bf-bc2" secondAttribute="top" constant="35" id="sqX-YH-Krv"/>
+                            <constraint firstItem="r5u-Bf-bc2" firstAttribute="bottom" secondItem="5nD-Nb-Yiw" secondAttribute="bottom" constant="439" id="vya-cn-gAR"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="r5u-Bf-bc2"/>
+                    </view>
+                    <connections>
+                        <outlet property="hypeTextField" destination="xDS-ta-LRc" id="2hG-Df-VLx"/>
+                        <outlet property="photoContainerView" destination="mZ9-pC-hTw" id="LAG-OM-Rg1"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WNP-Cl-mkB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1986.9565217391305" y="196.875"/>
+        </scene>
+        <!--PhotoPicker-->
+        <scene sceneID="dli-8p-U14">
+            <objects>
+                <viewControllerPlaceholder storyboardName="PhotoPicker" id="LmS-Pf-p0J" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="IVQ-YV-9ty"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ieg-Jk-4o7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2731" y="219"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="rVm-WN-hfv">

@@ -65,5 +65,15 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>NSCameraUsageDescription</key>
+	<string>Allows To access camera</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Photo library access</string>
+	<key>UIAppFonts</key>
+	<array>
+		<string>Lato-Regular.ttf</string>
+		<string>Lato-Light.ttf</string>
+		<string>Lato-Bold.ttf</string>
+	</array>
 </dict>
 </plist>
